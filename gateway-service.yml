@@ -5,24 +5,25 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: movie-service-route
-          uri: lb://movie-service
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: movieService
-                fallbackUri: forward:/fallback/movie
-          predicates:
-            - Path=/movies/**
-        - id: serie-service-route
-          uri: lb://serie-service
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: serieService
-                fallbackUri: forward:/fallback/serie
-          predicates:
-            - Path=/series/**
+#         Solo para pruebas directas sin pasar por el gateway
+#        - id: movie-service-route
+#          uri: lb://movie-service
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: movieService
+#                fallbackUri: forward:/fallback/movie
+#          predicates:
+#            - Path=/movies/**
+#        - id: serie-service-route
+#          uri: lb://serie-service
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: serieService
+#                fallbackUri: forward:/fallback/serie
+#          predicates:
+#            - Path=/series/**
         - id: catalog-service-route
           uri: lb://catalog-service
           filters:
@@ -34,7 +35,7 @@ spring:
                   - 500    # Contar estos código como fallidos, sino si el catalog responde con 500 lo contará como exitoso.
                            # Sin embargo persiste el problema, que en CLOSED también va al fallbackUri
           predicates:
-            - Path=/catalogs/**,/token
+            - Path=/**
       default-filters:
         - OIDCTokenRelay
 
