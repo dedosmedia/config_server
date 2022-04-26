@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    root: WARN
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/sql/init.sql
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://movies-db:3306/movies_database
+    username: superuser
+    password: password
+
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
