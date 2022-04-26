@@ -27,6 +27,8 @@ spring:
         - id: catalog-service-route
           uri: lb://catalog-service
           filters:
+            - RewritePath=/series, /catalogs/series
+            - RewritePath=/movies, /catalogs/movies
             - name: CircuitBreaker
               args:
                 name: catalogService
