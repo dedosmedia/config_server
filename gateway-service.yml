@@ -31,10 +31,10 @@ spring:
                 name: catalogService
                 fallbackUri: forward:/fallback/catalog
                 statusCodes:
-                  - 500    # Contar estos código como fallidos, si no si el catalog responde con 500 lo contará como exitoso.
+                  - 500    # Contar estos código como fallidos, sino si el catalog responde con 500 lo contará como exitoso.
                            # Sin embargo persiste el problema, que en CLOSED también va al fallbackUri
           predicates:
-            - Path=/catalogs/**
+            - Path=/catalogs/**,/token
       default-filters:
         - OIDCTokenRelay
 
