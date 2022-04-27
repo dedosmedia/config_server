@@ -5,7 +5,7 @@ spring:
   data:
     mongodb:
       # uri: mongodb://series-db:27017/netflix
-      hostname: series-db
+      host: series-db
       username: series
       password: password
       port: 27017
