@@ -36,8 +36,6 @@ spring:
 #                statusCodes:
 #                  - 500    # Contar estos código como fallidos, sino si el catalog responde con 500 lo contará como exitoso.
 #                           # Sin embargo persiste el problema, que en CLOSED también va al fallbackUri
-            - CircuitBreaker=catalogService2
-
           predicates:
             - Path=/**
       default-filters:
