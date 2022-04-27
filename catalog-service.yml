@@ -11,11 +11,11 @@ spring:
       port: 27018
       database: catalog_database
 
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: https://accounts.google.com
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
 
 
 resilience4j:

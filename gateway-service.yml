@@ -5,7 +5,7 @@ spring:
   cloud:
     gateway:
       routes:
-#         Solo para pruebas directas sin pasar por el gateway
+#         Lo descomento solo para pruebas directas sin pasar por el gateway
 #        - id: movie-service-route
 #          uri: lb://movie-service
 #          filters:
